@@ -1,0 +1,19 @@
+<h1>Employee Tracker</h1>
+
+<p><a href="/allemployees">All employees</a> </p>
+<p>Here are all your divisions:</p>
+
+<ul>
+  <% @divisions.each() do |division| %>
+  <li> <a href="/divisions/<%= division.id() %>"> <%= division.description %></a> --- <a href="/divisions/<%= division.id() %>/edit">Update this division</a></li>
+</ul>
+<% end %>
+
+  <p>Create a new division:</p>
+
+  <form action='/divisions' method='post'>
+    <label for='description'>Employee's division</label>
+    <input id='description' name='description' type='text'>
+
+  <button type="submit">Add division</button>
+</form>
