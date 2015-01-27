@@ -37,6 +37,14 @@ get('/divisions/:id/edit') do
   erb(:divisions_edit)
 end
 
+delete("/divisions/:id") do
+  @division = Division.find(params.fetch("id").to_i())
+  @division.destroy()
+  @division = Division.all()
+  redirect('/')
+  erb(:divisions)
+end
+
 post('/divisions/:id') do
   name = params.fetch("name")
   @division = Division.find(params.fetch("id").to_i())
